@@ -1,4 +1,25 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+body
+ {
+  background-color:#E0EEEE;
+  font-size:20px; 
+  color:#5C5C5C;
+  text-align: center; 
+ }
+ div
+ {
+ }
+
+ .menubar
+ {
+  background-color:#00008B;
+  width:100%;
+  height:50px;
+ }
+
+
+a:link { text-decoration:underline; font-weight:bold; color:#000000; }
+a:visited { text-decoration:underline; font-weight:bold; color:#000000; }
+a:hover { text-decoration:underline; font-weight:bold;}
+a:active { text-decoration:underline; font-weight:bold;}
+a:focus { text-decoration:underline; font-weight:bold;}
+

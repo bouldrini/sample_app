@@ -1,7 +1,9 @@
 SampleApp::Application.routes.draw do
-  get "/Pages/home"
-  get "/Pages/contact"
-  get "/Pages/about"
+  get "/pages/home"
+  get "/pages/contact"
+  get "/pages/about"
+
+  get "/index/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
