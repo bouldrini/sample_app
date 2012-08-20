@@ -1,0 +1,152 @@
+.container 
+{ 
+width: 710px;
+}
+
+body 
+{
+background: #000000;
+}
+
+header 
+{ 
+padding-top: 20px;
+}
+
+header img 
+{ 
+padding: 1em; 
+background: #000000;
+}
+
+section 
+{ 
+margin-top: 1em; 
+font-size: 120%; 
+padding: 20px; 
+background: #000000; 
+color:#FFFFFF;
+}
+
+section h1 
+{ 
+color:#FFFFFF;
+font-size: 200%;
+}
+
+/* Links */
+
+a
+{
+color: #FFFFFF; text-decoration: none;
+}
+
+a:hover 
+{
+color: #FFFFFF; text-decoration: underline;
+}
+
+a:visited 
+{ 
+color: #FFFFFF;
+}
+
+nav 
+{
+background-color: #000000; 
+padding: 0 0.7em;
+white-space: nowrap;
+}
+
+nav ul 
+{
+margin-top:0px;
+margin-left: 550px; 
+padding: 0px;
+}
+
+nav ul li 
+{ 
+list-style-type: none; 
+display: inline-block; 
+padding: 0.2em 0;
+}
+
+nav ul li a 
+{ 
+padding: 0 5px; 
+font-weight: bold;
+}
+
+nav ul li a:visited 
+{ 
+color: #FFFFFF;
+}
+
+nav ul li a:hover 
+{ 
+text-decoration: underline;
+}
+
+a.signup_button 
+{ 
+margin-left: auto; 
+margin-right: auto; 
+display: block; 
+text-align: center; 
+width: 190px; 
+color: #000000; 
+background: red; 
+font-size: 150%; 
+font-weight: bold; 
+padding: 20px;
+}
+
+.round 
+{
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px; 
+}
+
+footer 
+{
+white-space: nowrap;
+background-color: #000000;
+text-align: center; 
+margin-top: 10px; 
+width: 710px; 
+margin-left: auto; 
+margin-right: auto;
+float:none;
+}
+
+footer ul 
+{
+margin-left: 0px; 
+padding: 0px;
+}
+
+footer ul li 
+{ 
+list-style-type: none; 
+display: inline-block; 
+padding: 0.2em 0;
+}
+
+footer ul li a 
+{ 
+padding: 0 5px; 
+font-weight: bold;
+}
+
+footer ul li a:visited 
+{ 
+color: #FFFFFF;
+}
+
+footer ul li a:hover 
+{ 
+text-decoration: underline;
+}
+
