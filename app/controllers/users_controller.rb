@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # layout 'pages'
+  layout 'pages'
   
   def new
   end

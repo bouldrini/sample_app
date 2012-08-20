@@ -4,6 +4,7 @@ source 'http://rubygems.org'
   gem 'sqlite3-ruby'
   gem 'sqlite3'
   gem 'jquery-rails'
+  gem 'therubyracer'
 
 group :test do
 

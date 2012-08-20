@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+
             ###INDEX###
   root                :to =>  'pages#home'
 
