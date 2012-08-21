@@ -19,6 +19,11 @@
         <%= render 'layouts/footer' %>
 
     </div>
-    
+
+    <div class="debug">
+      <center>
+     <%= debug(params) if Rails.env.development? %>
+   </center>
+   </div>
   </body>
 </html>

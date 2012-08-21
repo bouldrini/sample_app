@@ -1,15 +1,27 @@
 SampleApp::Application.routes.draw do
+<<<<<<< HEAD
   get "users/new"
+=======
+
+          ###RESOURCES###
+  resources           :users
+>>>>>>> eccd0f5a846c1470be078a145317fbe1a79f1a71
 
             ###INDEX###
   root                :to =>  'pages#home'
 
             ###LINKS###
+
+      ###USER SPECIFIC PAGES###
   match '/signup' ,   :to =>  'users#new'
+
+          ###STATIC PAGES##
   match '/home'   ,   :to =>  'pages#home'
   match '/contact',   :to =>  'pages#contact'
   match '/about'  ,   :to =>  'pages#about'
   match '/help'   ,   :to =>  'pages#help'
+
+
 
   # The priority is based upon order of creation:s
   # first created -> highest priority.
