@@ -3,6 +3,12 @@
 width: 710px;
 }
 
+.debug
+{
+  margin-top: 300px;
+background-color:#6E6E6E;
+}
+
 body 
 {
 background: #000000;
@@ -30,7 +36,7 @@ color:#FFFFFF;
 
 section h1 
 { 
-color:#FFFFFF;
+color:red;
 font-size: 200%;
 }
 
