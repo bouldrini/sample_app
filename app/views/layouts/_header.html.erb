@@ -1,11 +1,12 @@
 <header>
 
-<%= link_to image_tag("logo.png", :alt => "Tent", :class => "round"), root_path %>
+<%= link_to image_tag("logo.png", :alt => "Tent"), root_path %>
 
 <nav class="round">
 <ul>
 <li><%= link_to "Home", root_path %></li> 
 <li><%= link_to "Help", help_path %></li> 
 <li><%= link_to "Sign in", '#' %></li>
+<li><%= link_to "Show current users", users_path %></li>
 </ul> </nav>
 </header>
