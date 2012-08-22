@@ -33,19 +33,30 @@ width: 710px;
 .field_with_errors input
 {
   padding: 2px; 
-  background-color: red; 
+  background-color: rgb(213, 51, 75); 
   display: table;
 }
 
-#error_explanation
+#error_explanation_signup
 { 
     margin: 40px 0px 40px 0px;
-    border: 1px solid red;
+    border: 1px solid rgb(213, 51, 75);
 }
 
-#error_explanation strong
+#error_explanation_signup strong
 { 
-  color:red;
+  color:rgb(213, 51, 75);
+}
+
+#error_explanation_signin
+{ 
+    margin: 40px 0px 40px 0px;
+    border: 1px solid #1C86EE;
+}
+
+#error_explanation_signin strong
+{ 
+  color:#1C86EE;
 }
 
 .flash
@@ -159,7 +170,20 @@ display: block;
 text-align: center; 
 width: 190px; 
 color: #FFFFFF; 
-background: red; 
+background: rgb(213, 51, 75); 
+font-size: 150%; 
+font-weight: bold; 
+padding: 20px;
+}
+a.signin_button 
+{ 
+margin-left: auto; 
+margin-right: auto; 
+display: block; 
+text-align: center; 
+width: 190px; 
+color: #FFFFFF; 
+background: #1C86EE; 
 font-size: 150%; 
 font-weight: bold; 
 padding: 20px;
