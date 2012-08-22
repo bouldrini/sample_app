@@ -19,9 +19,42 @@ width: 710px;
 
 .sidebar
 {
+  padding-left:10px;
   border: 1px solid white;
   background-color:#6E6E6E;
   color:#000000;
+}
+
+.field, .actions 
+{
+  margin-bottom:10px;
+}
+
+.field_with_errors input
+{
+  padding: 2px; 
+  background-color: red; 
+  display: table;
+}
+
+#error_explanation
+{ 
+    margin: 40px 0px 40px 0px;
+    border: 1px solid red;
+}
+
+#error_explanation strong
+{ 
+  color:red;
+}
+
+.flash
+{
+  background-color: #000000;
+  border: 1px solid #FFFFFF;
+  color:#FFFFFF;
+  font-style:bold;
+  font-size:150\;
 }
 
 body 
@@ -56,8 +89,16 @@ color:#FFFFFF;
 font-size: 200%;
 }
 
-/* Links */
+section 
+{
+  h2
+  {
+  font-size: 150%;
+  color:#FFFFFF;
+  }
+} 
 
+/* Links */
 a
 {
 color: #FFFFFF; text-decoration: none;
@@ -117,7 +158,7 @@ margin-right: auto;
 display: block; 
 text-align: center; 
 width: 190px; 
-color: #000000; 
+color: #FFFFFF; 
 background: red; 
 font-size: 150%; 
 font-weight: bold; 
@@ -134,9 +175,9 @@ border-radius: 10px;
 footer 
 {
 white-space: nowrap;
-background-color: #000000;
+background-color: #6E6E6E;
 text-align: center; 
-margin-top: 75%; 
+margin-top: 15px; 
 width: 710px; 
 margin-left: auto; 
 margin-right: auto;

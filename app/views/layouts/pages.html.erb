@@ -16,17 +16,22 @@
       <%= render 'layouts/nav' %>
 
     <div class="container">
-
       <section class="round">
+
+<% flash.each do |key, value| %>
+<div class="flash <%= key %> round"><%= value %></div>
+<% end %>
+
         <%= yield %> 
       </section>
 
-        <%= render 'layouts/footer' %>
+        
 
     </div>
 
     <div class="debug">
       <center>
+        <%= render 'layouts/footer' %>
      <%= debug(params) if Rails.env.development? %>
    </center>
    </div>
