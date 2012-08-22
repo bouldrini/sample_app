@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+class User < ActiveRecord::Base
+  attr_accessible :age, :email, :name
+=======
 ##REQUIREMENTS##
 
 require 'digest'
@@ -63,4 +67,5 @@ class User < ActiveRecord::Base
   def should_set_password?
     new_record? || password.present?
   end
+>>>>>>> eccd0f5a846c1470be078a145317fbe1a79f1a71
 end
