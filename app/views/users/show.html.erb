@@ -1,8 +1,12 @@
-<h1><%= @user.name %></h1>
-<p>
-
-<h2>age: </h2> <%= @user.age %>
-
-<p>
-
-<h2>email: </h2> <%= @user.email %>
+<table class="profile" summary="Profile information"> <tr>
+<td class="main"> <h1>
+<%= gravatar_for @user, 200 %>
+<%= @user.name %> </h1>
+</td>
+<td class="sidebar round">
+<strong>name</strong> <%= @user.name %> <br />
+<strong>age</strong>  <%= @user.age %>  <br />
+<strong>email</strong> <%= @user.email %> <br />
+<strong>URL</strong>  <%= link_to user_path(@user), @user %> </td>
+  </tr>
+</table>

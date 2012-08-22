@@ -5,12 +5,17 @@
 
       <%= csrf_meta_tag %>
       <%= render 'layouts/stylesheets' %>
+      
   </head>
   <body>
 
-    <div class="container">
+    <header>
+      <%= link_to image_tag("logo.png", :alt => "Tent"), root_path %>
+    </header> 
 
-      <%= render 'layouts/header' %> 
+      <%= render 'layouts/nav' %>
+
+    <div class="container">
 
       <section class="round">
         <%= yield %> 

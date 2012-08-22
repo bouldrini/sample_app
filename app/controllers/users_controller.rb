@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    id = 3
     @user = User.find(params[:id])
+    @title = @user.name
   end
 
 end

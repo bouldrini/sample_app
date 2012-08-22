@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
   gem 'rails'
   gem 'sqlite3-ruby'
+  gem 'gravatar_image_tag', '0.1.0'
   gem 'sqlite3'
   gem 'jquery-rails'
   gem 'therubyracer'
