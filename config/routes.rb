@@ -2,6 +2,7 @@ SampleApp::Application.routes.draw do
 
           ###RESOURCES###
   resources           :users
+
   resources           :sessions,              :only => [:new, :create, :destroy]
 
             ###INDEX###
@@ -11,7 +12,7 @@ SampleApp::Application.routes.draw do
 
       ###USER SPECIFIC PAGES###
   match '/signup' ,   :to =>  'users#new'
-  match '/signin',    :to =>  'sessions#new'
+  match '/signin' ,   :to =>  'sessions#new'
   match '/signout',   :to =>  'sessions#destroy'
 
           ###STATIC PAGES##

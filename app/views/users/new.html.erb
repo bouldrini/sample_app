@@ -4,7 +4,7 @@
 
     <%= form_for(@user) do |f| %> 
 
-    <%= render 'shared/error_messages_signup' %>
+    <%= render 'shared/error_messages_signup', :object => f.object %>
 
     <div class="field">
       <%= f.label :name %><br />

@@ -4,7 +4,7 @@
   
   <h2>
     <strong><%= pluralize(@user.errors.count, "error") %></strong>
-    prohibited this user from being saved:
+    prohibited this <%= object.class.to_s.underscore.humanize.downcase %> from being saved:
   </h2>
   
 

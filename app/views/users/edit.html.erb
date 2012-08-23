@@ -1,0 +1,53 @@
+<h1>Edit user</h1>
+
+<%= form_for(@user) do |f| %>
+
+<%= render 'shared/error_messages_signup', :object => f.object %> 
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br /> 
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br /> 
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %> 
+  </div>
+
+<% end %>
+
+<div id="gravatar">
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails">change</a> 
+</div>
+
+<script type="text/javascript">
+jQuery(function($){
+  var size = 0;
+  $("#gravatar img").click(function(){
+    if ($(this).css('width') == '250px') {
+      size = '100px';
+    } else {
+      size = '250px'; 
+    }
+    $(this).animate({
+    width: size,
+    height: size  
+  }, 500, function() {
+  })});
+});
+</script>
