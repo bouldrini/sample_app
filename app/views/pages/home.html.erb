@@ -3,12 +3,12 @@
       <h1><%= @title %></h1> 
 
         <p>
-          This is the home page for the
-          <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> 
-          sample application.
+          Welcome to rent my tent!
         </p> 
-
+<% if signed_in? %>
+<%else%>
         <%= link_to "Sign Up", signup_path, :class => "signup_button round" %>
         <p></p>
         <%= link_to "Sign In", signin_path, :class => "signin_button round" %>
+        <%end%>
 </center>
