@@ -2,8 +2,10 @@
     
     <div class="main"> 
       <h1>
+        <div id="gravatar">
         <%= gravatar_for @user, 200 %>
-        <%= @user.name %> 
+         <%= @user.name %> 
+        </div>
       </h1>
     </div>
 
@@ -15,3 +17,20 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+jQuery(function($){
+  var size = 0;
+  $("#gravatar img").click(function(){
+    if ($(this).css('width') == '670px') {
+      size = '200px';
+    } else {
+      size = '670px'; 
+    }
+    $(this).animate({
+    width: size,
+    height: size  
+  }, 500, function() {
+  })});
+});
+</script>

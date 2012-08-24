@@ -18,16 +18,12 @@
 
     <div class="container">
       <section class="round">
-
-<% flash.each do |key, value| %>
-<%= content_tag(:div, value, :class => "flash #{key} round") %>
-<% end %>
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, :class => "flash #{key} round") %>
+        <% end %>
 
         <%= yield %> 
       </section>
-
-        
-
     </div>
 
     <div class="debug">
