@@ -1,7 +1,11 @@
 SampleApp::Application.routes.draw do
 
           ###RESOURCES###
-  resources           :users
+  resources           :users, :except => [:destroy] do 
+    member do
+      match 'delete_form'
+    end
+  end
 
   resources           :sessions,              :only => [:new, :create, :destroy]
 
@@ -11,7 +15,6 @@ SampleApp::Application.routes.draw do
             ###LINKS###
 
       ###USER SPECIFIC PAGES###
-  match '/signup' ,   :to =>  'users#new'
   match '/signin' ,   :to =>  'sessions#new'
   match '/signout',   :to =>  'sessions#destroy'
 

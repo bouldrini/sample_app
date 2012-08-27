@@ -1,7 +1,8 @@
+# encoding: utf-8 
 class UsersController < ApplicationController
   layout 'pages'
-  before_filter :authenticate, :only => [:edit, :update, :show, :index] 
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update, :show, :delete_form] 
+  before_filter :correct_user, :only => [:edit, :update, :delete_form]
   def new
      @user = User.new
     @title = "Sign up"
@@ -14,14 +15,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @title = @user.name
+        @title = @user.name
+
   end
 
   def create
     @user = User.new(params[:user]) 
     if @user.save
       sign_in @user
-    flash[:success] = "Want to rent my tent?"
+    flash[:success] = "Want to rent my tent"
     redirect_to @user  
     else
       @title = "Sign up"
@@ -36,15 +38,28 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-  if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
       redirect_to @user
-  else
+    else
       @title = "Edit user"
       render 'edit'
-  end 
+    end 
+  end
 
-end
+  def delete_form
+    @user = User.find(params[:id])
+    if request.post?
+      if params[:password] == params[:password_confirmation] && @user.has_password?(params[:password])
+        @user.destroy
+        flash[:notice] = 'Account successfully removed'
+        redirect_to root_path
+        return
+      else
+        flash[:error] = 'Incorrect Password'
+      end  
+    end
+  end
 
 private
 
@@ -57,7 +72,7 @@ private
   def correct_user
     @user = User.find(params[:id]) 
     redirect_to current_user unless current_user?(@user)
-    flash[:error] = "No permission to edit foreign profiles" unless current_user?(@user)
+    flash[:error] = "Insufficient Permission" unless current_user?(@user)
   end
 
 end

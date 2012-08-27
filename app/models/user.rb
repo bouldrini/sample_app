@@ -18,12 +18,17 @@ class User < ActiveRecord::Base
 
   validates_presence_of :age, on: :create
   validates_inclusion_of :age, :in => 18..55
+  
   validates_presence_of :password, on: :create
   validates_confirmation_of :password, if: :should_set_password?
   validates_presence_of :password_confirmation, if: :should_set_password?
   validates_length_of :password, minimum: 6, if: :should_set_password?
 
   before_save     :encrypt_password
+
+  def admin?
+
+  end
 
   def has_password?(submitted_password) 
     encrypted_password == encrypt(submitted_password)

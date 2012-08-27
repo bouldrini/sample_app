@@ -1,0 +1,21 @@
+<h1> Want to delete your Profile ? </h1>
+
+<h2> Please confirm your identity: </h2>
+
+<%= form_tag delete_form_user_path do %>
+
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %> 
+  </div>
+
+  <div class="field">
+    <%= label_tag :password_confirmation, "Confirmation" %><br /> 
+    <%= password_field_tag :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Destroy" %> 
+  </div>
+
+<% end %>
