@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   #                                         :on             =>  :create
 
   validates_presence_of :age, on: :create
-  validates_inclusion_of :age, :in => 18..45
+  validates_inclusion_of :age, :in => 18..55
   validates_presence_of :password, on: :create
   validates_confirmation_of :password, if: :should_set_password?
   validates_presence_of :password_confirmation, if: :should_set_password?

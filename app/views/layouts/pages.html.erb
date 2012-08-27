@@ -11,7 +11,12 @@
   <body>
 
     <header>
+      <% if signed_in? %>
+      <%= link_to image_tag("logo.png", :alt => "Tent"), current_user %>
+      <% else %>
       <%= link_to image_tag("logo.png", :alt => "Tent"), root_path %>
+      <% end %>
+      
     </header> 
 
       <%= render 'layouts/nav' %>
