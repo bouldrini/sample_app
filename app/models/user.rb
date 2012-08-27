@@ -14,11 +14,7 @@ class User < ActiveRecord::Base
   validates       :email,                 :presence       =>  true,
                                           :format         =>  { :with => EMAIL_REGEX }, 
                                           :uniqueness     =>  { :case_sensitive => false }   
-                                                               
-  # validates       :password,              :presence       =>  true,
-  #                                         :confirmation   =>  true,
-  #                                         :length         =>  { :within => 6..40 },  
-  #                                         :on             =>  :create
+                                                              
 
   validates_presence_of :age, on: :create
   validates_inclusion_of :age, :in => 18..55

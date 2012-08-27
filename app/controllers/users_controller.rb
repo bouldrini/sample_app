@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout 'pages'
-  before_filter :authenticate, :only => [:edit, :update] 
+  before_filter :authenticate, :only => [:edit, :update, :show, :index] 
   before_filter :correct_user, :only => [:edit, :update]
   def new
      @user = User.new
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
+    @users = User.paginate(:page => params[:page])
   end
 
   def show
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
       @title = "Edit user"
       render 'edit'
   end 
+
 end
 
 private
@@ -49,11 +51,13 @@ private
 
   def authenticate
     deny_access unless signed_in?
+
   end
 
   def correct_user
-@user = User.find(params[:id]) 
-redirect_to(root_path) unless current_user?(@user)
-end
+    @user = User.find(params[:id]) 
+    redirect_to current_user unless current_user?(@user)
+    flash[:error] = "No permission to edit foreign profiles" unless current_user?(@user)
+  end
 
 end

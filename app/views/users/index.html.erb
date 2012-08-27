@@ -1,9 +1,15 @@
+<h1> Users: </h1> <br>
+
+<%= will_paginate %>
+
 <%  @user.each do |user| %>
 <div id="gravatar">
 <%= gravatar_for user,100 %>
 <%=link_to user.name,  user_path(user) %> <br />
 </div> 
 <% end %>
+
+<%= will_paginate %>
 
 <script type="text/javascript">
 jQuery(function($){
