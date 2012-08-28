@@ -7,7 +7,7 @@
         </p> 
 <% if signed_in? %>
 <%else%>
-        <%= link_to "Sign Up", signup_path, :class => "signup_button round" %>
+        <%= link_to "Sign Up", new_user_path, :class => "signup_button round" %>
         <p></p>
         <%= link_to "Sign In", signin_path, :class => "signin_button round" %>
         <%end%>
