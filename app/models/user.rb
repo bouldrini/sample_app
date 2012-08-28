@@ -2,7 +2,9 @@
 require 'digest'
 
 class User < ActiveRecord::Base
+
   attr_accessor :password, :password_confirmation
+  has_many :microposts, :dependent => :destroy
 
   attr_accessible :age, :email, :name, :password, :password_confirmation
 

@@ -1,11 +1,15 @@
 SampleApp::Application.routes.draw do
 
           ###RESOURCES###
-  resources           :users, :except => [:destroy] do 
+  resources           :users do 
     member do
       match 'delete_form'
     end
+
+    resources :microposts
   end
+
+
 
   resources           :sessions,              :only => [:new, :create, :destroy]
 

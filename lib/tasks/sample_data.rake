@@ -20,6 +20,12 @@ User.create!(:name => name,
 :email => email,
 :password => password,
 :password_confirmation => password)
+
+User.all(:limit => 6).each do |user|
+50.times do
+user.microposts.create!(:content => Faker::Lorem.sentence(10))
+end
+end
 end 
 end
 end

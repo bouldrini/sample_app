@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <td>
+      <%= gravatar_for @user, 100  %> 
+    </td>
+
+    <td>
+      <div class="micropostscontent round">
+        <%= micropost.content %>
+      </div>
+
+      <div class="micropostsinfo round">
+        Posted <%= time_ago_in_words(micropost.created_at) %> ago by <%= link_to @user.name, user_path(@user) %>
+      </div>
+    </td>
+</table>
+  

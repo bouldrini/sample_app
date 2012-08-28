@@ -1,23 +1,74 @@
 <div class="profile" summary="Profile information"> 
     
     <div class="main"> 
+
       <h1>
         <div id="gravatar">
         <%= gravatar_for @user, 200 %>
          <%= @user.name %> 
+         <% if current_user.admin? %>
+         <div class="admin">
+         ||   <%= link_to "kill user", user_path, :method => :delete, :confirm => 'Really?' %>
+         </div>
+         <% end %>
         </div>
-      </h1>
-    </div>
+        </h1>
 
     <div class="sidebar round">
-      <strong>name</strong> <%= @user.name %> <br />
-      <strong>age</strong>  <%= @user.age %>  <br />
-      <strong>email</strong> <%= @user.email %> <br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %> 
+      <table>
+        <tr>
+          <td>
+            <strong>My name: </strong> 
+          </td>
+          <td>
+             <%= link_to @user.name, user_path(@user) %>
+          </td>
+        <tr>
+          <td>
+            <strong>My age: </strong>  
+          </td>
+          <td>
+            <%= @user.age %>
+          </td>
+      <tr>
+          <td>
+            <strong>My mail: </strong> 
+          </td>
+          <td>
+            <%= @user.email %>
+          </td>
+      <tr>
+          <td >
+            <strong>My posts: </strong> 
+          </td>
+          <td>
+            <%= @user.microposts.count %>
+          </td>
+        </table>
     </div>
 
-</div>
+    <% if current_user?(@user) %>
 
+    <%= render 'microposts/form' %>
+
+    <% end %>
+
+
+<% unless @user.microposts.empty? %>
+<p>   
+    <%= will_paginate @microposts %> 
+    <p>
+  <div class="micropost_area">
+      <% @microposts.each do |mp| %>
+        <%= render 'microposts/micropost', :micropost => mp %>
+      <% end %>
+    <p>
+  
+  </div>
+  
+    <%= will_paginate @microposts %> 
+    <% end %>
+</div>
 <script type="text/javascript">
 jQuery(function($){
   var size = 0;

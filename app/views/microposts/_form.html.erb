@@ -1,0 +1,8 @@
+<div class='newpost round'>
+  <%= form_for [@user, @micropost] do |f| %>
+    <%= f.label 'content', 'Post' %>
+    <%= f.text_field 'content' %>
+
+    <%= f.submit 'Post' %>
+  <% end %>
+</div>

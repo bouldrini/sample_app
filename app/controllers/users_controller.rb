@@ -1,7 +1,7 @@
 # encoding: utf-8 
 class UsersController < ApplicationController
   layout 'pages'
-  before_filter :authenticate, :only => [:edit, :update, :show, :delete_form] 
+  before_filter :authenticate, :only => [:edit, :update, :show, :delete_form]
   before_filter :correct_user, :only => [:edit, :update, :delete_form]
   def new
      @user = User.new
@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-        @title = @user.name
-
+    @microposts = @user.microposts.paginate(:page => params[:page])
+    @title = @user.name
+    @micropost = Micropost.new
   end
 
   def create
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    raise "dasd"
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
@@ -49,15 +51,39 @@ class UsersController < ApplicationController
 
   def delete_form
     @user = User.find(params[:id])
-    if request.post?
-      if params[:password] == params[:password_confirmation] && @user.has_password?(params[:password])
-        @user.destroy
+      if request.post?
+        if params[:password] == params[:password_confirmation] && @user.has_password?(params[:password]) || current_user.admin?
+          @user.destroy
+          flash[:notice] = 'Account successfully removed'
+          redirect_to root_path
+          return
+        else
+          flash[:error] = 'Incorrect Password'
+        end  
+      end
+  end
+
+  def create_post
+    @user = User.find(params[:id])
+    if current_user?(@user)
+
+      @user.microposts.new(params[:micropost])
+      @user.save
+
+    end
+    redirect_to @user
+  end
+
+  def destroy
+      if current_user.admin?
+      @user = User.find(params[:id])
+      if @user.destroy 
+        @user.microposts.destroy
         flash[:notice] = 'Account successfully removed'
-        redirect_to root_path
-        return
       else
-        flash[:error] = 'Incorrect Password'
-      end  
+        flash[:error] = 'Error has been detected'
+      end
+      redirect_to users_path
     end
   end
 
@@ -65,14 +91,18 @@ private
 
 
   def authenticate
-    deny_access unless signed_in?
+    unless current_user.admin?
+      deny_access unless signed_in?
+    end
 
   end
 
   def correct_user
-    @user = User.find(params[:id]) 
-    redirect_to current_user unless current_user?(@user)
-    flash[:error] = "Insufficient Permission" unless current_user?(@user)
+    unless current_user.admin?
+      @user = User.find(params[:id]) 
+      redirect_to current_user unless current_user?(@user)
+      flash[:error] = "Insufficient Permission" unless current_user?(@user)
+    end
   end
 
 end

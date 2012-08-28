@@ -3,17 +3,10 @@
 one:
   name: MyString
   email: MyString
-<<<<<<< HEAD
-  age: 2012-08-20
-=======
   age: 1
->>>>>>> eccd0f5a846c1470be078a145317fbe1a79f1a71
 
 two:
   name: MyString
   email: MyString
-<<<<<<< HEAD
   age: 2012-08-20
-=======
   age: 1
->>>>>>> eccd0f5a846c1470be078a145317fbe1a79f1a71

@@ -17,11 +17,45 @@ width: 710px;
   color:#000000;
 }
 
+.micropostscontent
+{
+  width:520px;
+  font-size:150%;
+  padding-left:10px;
+  margin-top:20px;
+  background-color:#6E6E6E;
+}
+
+.micropostsinfo
+{
+  font-size:70%;
+  margin-left:0px;
+  padding-left:10px;
+  background-color:#000000;
+  border: 1px solid white;
+}
+
 .sidebar
 {
-  padding-left:10px;
+a
+{
+color: #000000;
+text-decoration: none;
+}
+
+a:hover 
+{
+color: #000000;
+text-decoration: underline;
+}
+
+a:visited 
+{ 
+color: #000000;
+}
+  padding-left:0px;
   border: 1px solid white;
-  background-color:#6E6E6E;
+  background-color:#BEBEBE;
   color:#000000;
 }
 
@@ -57,6 +91,29 @@ width: 710px;
 #error_explanation_signin strong
 { 
   color:#1C86EE;
+}
+
+.admin
+{
+  color: rgb(213, 51, 75);
+
+a
+{
+color: rgb(213, 51, 75);
+text-decoration: none;
+}
+
+a:hover 
+{
+color: rgb(213, 51, 75);
+text-decoration: underline;
+}
+
+a:visited 
+{ 
+color: rgb(213, 51, 75);
+}
+
 }
 
 .flash
@@ -195,6 +252,7 @@ padding: 20px;
 -webkit-border-radius: 10px;
 border-radius: 10px; 
 }
+
 
 footer 
 {
