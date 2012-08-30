@@ -1,0 +1,20 @@
+    <% @user ||= current_user %>
+    <tr>
+      <td>
+        <strong>Like:</strong>
+      </td>
+      <td>
+        <a href="<%= following_user_path(@user) %>">
+          I am following <%= @user.following.count %> users
+        </a>
+      </td> 
+      <tr>
+      <td>
+        <strong>Fame:</strong>
+      </td>
+      <td>
+        <a href="<%= followers_user_path(@user) %>"> 
+         I got  <%= pluralize(@user.followers.count, "followers") %> 
+        </a> 
+      </td>
+

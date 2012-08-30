@@ -24,5 +24,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
-###FRAGEN: COOKIES?! ###

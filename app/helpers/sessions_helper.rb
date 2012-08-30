@@ -1,9 +1,8 @@
 module SessionsHelper
 
     def sign_in(user)
-      @sign_in_time =Time.now.utc
       cookies.signed[:remember_token] = [user.id, user.salt]
-      cookies.signed[:time] = @sign_in_time
+      cookies.signed[:time] = Time.now.utc
       current_user = user
     end 
   

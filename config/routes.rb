@@ -7,7 +7,16 @@ SampleApp::Application.routes.draw do
     end
 
     resources :microposts
+      member do
+        match 'delete_post'
+    end
+
+    member do
+      get :following, :followers
+    end
+    
   end
+
 
 
 

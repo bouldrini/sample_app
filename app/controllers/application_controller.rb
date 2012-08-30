@@ -15,13 +15,17 @@ class ApplicationController < ActionController::Base
   private
 
   def expired?
-
-  if cookies.signed[:time].present?
-     if Time.now.utc > (cookies.signed[:time] + 600)
-   flash[:success] = "Your Session has been expired! Please Sign in again!"
-       sign_out
-       redirect_to root_path
-      end
-  end
+         if cookies.signed[:time].present?
+           if Time.now.utc > (cookies.signed[:time] + 600)
+            if !current_user.admin?
+             flash[:success] = "Your Session has been expired! Please Sign in again!"
+             sign_out
+             redirect_to root_path
+           else
+            cookies.signed[:time] = Time.now.utc
+            flash[:success] = "The expired? function triggerd within the last seconds"
+          end
+       end
+     end
   end
 end

@@ -124,7 +124,11 @@ color: rgb(213, 51, 75);
   font-style:bold;
   font-size:150\;
 }
-
+input[type=submit]#post
+{
+  width:200px;
+  margin-left:270px;
+}
 body 
 {
 background: #000000;

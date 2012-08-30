@@ -11,6 +11,9 @@
 
       <div class="micropostsinfo round">
         Posted <%= time_ago_in_words(micropost.created_at) %> ago by <%= link_to @user.name, user_path(@user) %>
+        <% if @user = current_user %>
+        ||   <%= link_to "delete post", user_micropost_path(@user), :method => :delete%>
+        <% end %>
       </div>
     </td>
 </table>

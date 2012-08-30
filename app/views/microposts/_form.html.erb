@@ -1,8 +1,40 @@
-<div class='newpost round'>
-  <%= form_for [@user, @micropost] do |f| %>
-    <%= f.label 'content', 'Post' %>
-    <%= f.text_field 'content' %>
+<div class="asdf">
+<%= form_for [@user, @micropost] do |f| %>
 
-    <%= f.submit 'Post' %>
+<div class='newpost round'>
+
+    <%= f.text_area 'content', :size => "12x4", :value => "share your opinion", :id => "area", :class => "round" %>
+
+</div>
+    <%= f.submit 'Post', :id => "post", :class => "round" %>
   <% end %>
 </div>
+<script type="text/javascript">
+
+jQuery(function($){
+
+
+  var tidyup = function(){
+    if($("#area").val() === "share your opinion"){
+    $("#area").val('');
+    }
+  }
+
+  var lock = function() {
+    if ($("#area").val().length > 1000) {
+      $("#area").val($("#area").val().substring(0,1000));
+    } else {
+      $("#post").css({'background-color': ''});
+    } 
+  }
+
+  $("#area").click(function(){
+    tidyup();
+  });
+
+  $("#area").keyup(function(){
+    lock();
+  });
+});
+
+</script>

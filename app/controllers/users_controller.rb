@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
     @micropost = Micropost.new
-  end
+  end   
 
   def create
     @user = User.new(params[:user]) 
@@ -38,13 +38,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    raise "dasd"
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       redirect_to @user
     else
-      @title = "Edit user"
+      @title = "Edit user"      
       render 'edit'
     end 
   end
@@ -87,6 +86,7 @@ class UsersController < ApplicationController
     end
   end
 
+
 private
 
 
@@ -94,7 +94,6 @@ private
     unless current_user.admin?
       deny_access unless signed_in?
     end
-
   end
 
   def correct_user
