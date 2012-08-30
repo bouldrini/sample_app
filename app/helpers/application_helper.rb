@@ -3,7 +3,7 @@ module ApplicationHelper
 
 
   def title
-    base_title = "Rent my tent" 
+    base_title = "AEON" 
     if @title.nil?
       base_title
     else

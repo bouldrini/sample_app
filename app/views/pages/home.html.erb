@@ -6,16 +6,11 @@
           Welcome to rent my tent!
         </p> 
 <% if signed_in? %>
+<%= render 'shared/user_info' %> 
+<%= render 'shared/stats' %>
 <%else%>
         <%= link_to "Sign Up", new_user_path, :class => "signup_button round" %>
         <p></p>
         <%= link_to "Sign In", signin_path, :class => "signin_button round" %>
         <%end%>
 </center>
-
-<script type="text/javascript">
-  jQuery(function($){
-    $(".flash").delay(3000).fadeOut(1000);
-  });
-</script>
-        

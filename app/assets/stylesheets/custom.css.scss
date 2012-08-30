@@ -26,6 +26,9 @@ width: 710px;
   background-color:#6E6E6E;
 }
 
+td#noline{
+  border-bottom:none;
+}
 .micropostsinfo
 {
   font-size:70%;
@@ -95,25 +98,32 @@ color: #000000;
 
 .admin
 {
+  font-size:100%;
   color: rgb(213, 51, 75);
 
 a
 {
-color: rgb(213, 51, 75);
-text-decoration: none;
+  color: rgb(213, 51, 75);
+  text-decoration: none;
 }
 
 a:hover 
 {
-color: rgb(213, 51, 75);
-text-decoration: underline;
+  color: rgb(213, 51, 75);
+  text-decoration: underline;
 }
 
 a:visited 
 { 
-color: rgb(213, 51, 75);
+  color: rgb(213, 51, 75);
 }
 
+}
+
+.verticalline
+{
+  margin-top:5px;
+  border-bottom:2px solid #FFFFFF;
 }
 
 .flash
@@ -129,6 +139,19 @@ input[type=submit]#post
   width:200px;
   margin-left:270px;
 }
+
+input[type=submit]#linkbutton
+{
+  background-color:#000000;
+  color:rgb(213, 51, 75);
+  border:0px;
+  cursor:pointer;
+  font-size:90%;
+  text-decoration:none;
+  text-align:left;
+}
+
+
 body 
 {
 background: #000000;

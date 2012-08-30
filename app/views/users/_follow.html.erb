@@ -1,0 +1,10 @@
+<%= form_for current_user.relationships.build(:followed_id => @user.id) do |f| %>
+
+  <div>
+    <%= f.hidden_field :followed_id %>
+  </div>
+
+  ||<%= f.submit "Follow", :id => "linkbutton", :onmouseover => "this.style.textDecoration='underline'", :onmouseout => "this.style.textDecoration='none'"%>
+
+<% end %>
+

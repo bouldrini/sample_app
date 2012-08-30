@@ -1,0 +1,71 @@
+<div class="sidebar round">
+      <table>
+        <tr>
+          <td>
+            <strong>My name: </strong> 
+          </td>
+          <td>
+             <%= link_to @user.name, user_path(@user) %>
+          </td>
+        <tr>
+          <td>
+            <strong>My age: </strong>  
+          </td>
+          <td>
+            <%= @user.age %>
+          </td>
+      <tr>
+          <td>
+            <strong>My mail: </strong> 
+          </td>
+          <td>
+            <%= @user.email %>
+          </td>
+      <tr>
+          <td >
+            <strong>My posts: </strong> 
+          </td>
+          <td>
+            <%= @user.microposts.count %>
+          </td>
+                          <tr>
+                  <td >
+                    <strong><%= @title %>:</strong>
+                  </td>
+          <td>
+            <% unless @users.empty? %>
+              <% @users.each do |user| %>
+                <%= link_to gravatar_for(user, 50), user%>
+              <% end %> 
+            <% end %>          
+          </td>
+
+          <%= render 'shared/stats' %>
+
+        </table>
+    </div>
+
+      <h1><%= @title %></h1>
+        <% unless @users.empty? %> 
+          <%= will_paginate @users %>
+          <%= render @users %> 
+          <%= will_paginate @users %> 
+        <% end %>
+
+
+<script type="text/javascript">
+jQuery(function($){
+  var size = 0;
+  $("#gravatar img").click(function(){
+    if ($(this).css('width') == '250px') {
+      size = '100px';
+    } else {
+      size = '250px'; 
+    }
+    $(this).animate({
+    width: size,
+    height: size  
+  }, 500, function() {
+  })});
+});
+</script>

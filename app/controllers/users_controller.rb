@@ -1,7 +1,7 @@
 # encoding: utf-8 
 class UsersController < ApplicationController
   layout 'pages'
-  before_filter :authenticate, :only => [:edit, :update, :show, :delete_form]
+  before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update, :delete_form]
   def new
      @user = User.new
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user]) 
     if @user.save
       sign_in @user
-    flash[:success] = "Want to rent my tent"
+    flash[:success] = "Check out the war area!"
     redirect_to @user  
     else
       @title = "Sign up"
@@ -86,15 +86,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page]) 
+    render 'show_follow'
+  end
+
 
 private
 
 
-  def authenticate
-    unless current_user.admin?
-      deny_access unless signed_in?
-    end
-  end
+
 
   def correct_user
     unless current_user.admin?

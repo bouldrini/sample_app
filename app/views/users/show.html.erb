@@ -6,11 +6,12 @@
         <div id="gravatar">
         <%= gravatar_for @user, 200 %>
          <%= @user.name %> 
-         <% if current_user.admin? %>
-         <div class="admin">
-         ||   <%= link_to "kill user", user_path, :method => :delete, :confirm => 'Really?' %>
-         </div>
-         <% end %>
+            <div class="admin">
+                   <%= render 'follow_form' if signed_in? %>
+              <% if current_user.admin? %>
+                || <%= link_to "kill user", user_path, :method => :delete, :confirm => 'Really?'  %>  
+              <% end %>           
+          </div>
         </div>
         </h1>
 
@@ -38,7 +39,7 @@
             <%= @user.email %>
           </td>
       <tr>
-          <td >
+          <td>
             <strong>My posts: </strong> 
           </td>
           <td>
