@@ -3,6 +3,7 @@ class Micropost < ActiveRecord::Base
   attr_accessible :content
   
   default_scope :order => 'microposts.created_at DESC'
+  
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
   validates_presence_of :content, on: :create

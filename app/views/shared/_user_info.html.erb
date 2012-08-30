@@ -5,4 +5,13 @@
 <span class="microposts">
 <%= pluralize(current_user.microposts.count, "micropost") %>
 </span> </a>
+
+<% current_user.followers.map{|f| f.microposts.limit(3)}.compact.flatten.each do |mp| %>
+  <%#= mp.try(:content) %><br />
+<% end %>
+
+<% current_user.feed.each do |mp| %>
+  <%= mp.try(:content) %><br />
+<% end %>
+
 </div>

@@ -3,6 +3,8 @@ require 'digest'
 
 class User < ActiveRecord::Base
 
+  scope :admin, where('admin == ?', true).limit(5).order(:lastname)
+
   attr_accessor :password, :password_confirmation
   attr_accessible :age, :email, :name, :password, :password_confirmation
 
